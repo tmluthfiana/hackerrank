@@ -4,13 +4,12 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	//Mini-Max Sum
+	//Birthday Cake Candles
 	//Enter your code here. Read input from STDIN. Print output to STDOUT
 	scanner := bufio.NewScanner(os.Stdin)
 	lines := make([]string, 0)
@@ -21,22 +20,29 @@ func main() {
 	if err := scanner.Err(); err != nil {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
-	var in []int
-	for _, a := range aa {
-		num, _ := strconv.Atoi(a)
+
+	var in []int64
+	n, _ := strconv.Atoi(lines[0])
+	aaa := strings.Split(lines[1], " ")
+	for _, a := range aaa {
+		num, _ := strconv.ParseInt(a, 0, 64)
 		in = append(in, num)
 	}
 
-	var a = make([]int, 5)
-	var sum int
-	sum = 0
+	var tallest int64
+	frequency := 0
 
-	for i := 0; i < len(a); i++ {
-		a[i] = in[i]
-		sum += a[i]
+	for i := 0; i < n; i++ {
+		height := in[i]
+
+		if height > tallest {
+			tallest = height
+			frequency = 1
+		} else if height == tallest {
+			frequency++
+		}
+
 	}
 
-	sort.Ints(a)
-	fmt.Println((sum - a[len(a)-1]), (sum - a[0]))
-
+	fmt.Println(frequency)
 }
