@@ -13,7 +13,7 @@ func main() {
 	//Mini-Max Sum
 	//Enter your code here. Read input from STDIN. Print output to STDOUT
 	scanner := bufio.NewScanner(os.Stdin)
-	line := make([]string, 0)
+	lines := make([]string, 0)
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
@@ -22,7 +22,7 @@ func main() {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
 	var in []int
-	aa := strings.Split(line[0], " ")
+	aa := strings.Split(lines[0], " ")
 	for _, a := range aa {
 		num, _ := strconv.Atoi(a)
 		in = append(in, num)
