@@ -22,8 +22,8 @@ func main() {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
 	var in []int
-	aa := strings.Split(lines[0], " ")
-	for _, a := range aa {
+	aaa := strings.Split(lines[0], " ")
+	for _, a := range aaa {
 		num, _ := strconv.Atoi(a)
 		in = append(in, num)
 	}
