@@ -22,7 +22,12 @@ func main() {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
 	var in []int
+<<<<<<< HEAD
 	for _, a := range aa {
+=======
+	aaa := strings.Split(lines[0], " ")
+	for _, a := range aaa {
+>>>>>>> 056adb0a7913cb8bdb5abbae4a24f775999c5e82
 		num, _ := strconv.Atoi(a)
 		in = append(in, num)
 	}
